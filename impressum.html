@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – MP Vision GmbH</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;
+  --surface:#161614;
+  --border:rgba(255,255,255,0.07);
+  --text:#f0ede8;
+  --muted:#888880;
+  --accent:#e8b84b;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.6;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+
+#cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(232,184,75,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.4s,height 0.4s}
+body:has(a:hover) #cursor-ring{width:60px;height:60px}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:rgba(10,10,10,0.92);border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-back{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:8px}
+.nav-back:hover{color:var(--accent)}
+
+main{min-height:100vh;padding:140px 5% 100px;max-width:760px;margin:0 auto}
+
+.page-eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1rem}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,5.5rem);letter-spacing:0.03em;line-height:1;margin-bottom:3rem;color:var(--text)}
+
+.block{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.block:last-child{border-bottom:none;margin-bottom:0}
+.block-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:500}
+.block-content{color:var(--muted);line-height:1.9;font-size:1rem}
+.block-content strong{color:var(--text);font-weight:500}
+.block-content a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(232,184,75,0.3);padding-bottom:1px;transition:border-color 0.2s}
+.block-content a:hover{border-color:var(--accent);color:var(--accent)}
+.block-content p{margin-bottom:0.6rem}
+.block-content p:last-child{margin-bottom:0}
+
+.fn-badge{
+  display:inline-flex;gap:2rem;flex-wrap:wrap;
+  background:var(--surface);border:1px solid var(--border);
+  padding:1.2rem 1.8rem;border-radius:4px;margin-top:1rem;
+}
+.fn-item{}
+.fn-item span{display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.fn-item strong{color:var(--text);font-size:1rem;font-weight:500}
+
+footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.1em;color:var(--muted)}
+.footer-logo span{color:var(--accent)}
+.footer-copy{color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">MP<span>·</span>Vision</a>
+  <a class="nav-back" href="index.html">← Zurück zur Website</a>
+</nav>
+
+<main>
+  <div class="page-eyebrow">Rechtliches</div>
+  <h1 class="page-title">Impressum</h1>
+
+  <div class="block">
+    <div class="block-label">Unternehmensbezeichnung</div>
+    <div class="block-content">
+      <p><strong>MP Vision GmbH</strong></p>
+      <p>Oberanger 54/Top 1<br>A-6179 Ranggen<br>Österreich</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Kontakt</div>
+    <div class="block-content">
+      <p><a href="tel:+436776293384">+43 677 6293 3848</a></p>
+      <p><a href="mailto:info@mp-vision.at">info@mp-vision.at</a></p>
+      <p><a href="https://www.mp-vision.at" target="_blank">www.mp-vision.at</a></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Firmenbuch & Steuer</div>
+    <div class="block-content">
+      <p>Zuständiges Gericht: <strong>Landesgericht Innsbruck</strong></p>
+      <div class="fn-badge">
+        <div class="fn-item">
+          <span>Firmenbuchnummer</span>
+          <strong>FN 663279k</strong>
+        </div>
+        <div class="fn-item">
+          <span>UID-Nummer</span>
+          <strong>ATU82557813</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Unternehmensgegenstand</div>
+    <div class="block-content">
+      <p>Grafikdesign, Marketing, E-Commerce Beratung und Multichannel-Strategien.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Haftungsausschluss</div>
+    <div class="block-content">
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.</p>
+      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Links zu externen Websites Dritter liegen außerhalb unseres Einflussbereichs; eine Haftung hierfür wird abgelehnt.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Urheberrecht</div>
+    <div class="block-content">
+      <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung der MP Vision GmbH.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">MP<span>·</span>Vision</div>
+  <div class="footer-copy">© 2026 MP Vision GmbH</div>
+</footer>
+
+<script>
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+animRing();
+</script>
+</body>
+</html>
