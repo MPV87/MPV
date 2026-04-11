@@ -312,35 +312,24 @@ section{padding:100px 5%}
   display:flex;align-items:center;justify-content:center;
   color:#5fa87f;font-size:12px;flex-shrink:0;margin-top:1px;
 }
-.fw-visual{
-  display:flex;align-items:center;justify-content:center;
-}
-.fw-circle{
-  width:340px;height:340px;border-radius:50%;
-  border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.fw-circle::before{
-  content:'';position:absolute;inset:20px;border-radius:50%;
-  border:1px solid rgba(232,184,75,0.15);
-}
-.fw-circle::after{
-  content:'';position:absolute;inset:50px;border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(61,107,85,0.15),transparent);
-  border:1px solid rgba(61,107,85,0.2);
-}
-.fw-core{
-  z-index:2;text-align:center;padding:2rem;
-}
-.fw-core-big{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:var(--accent);line-height:1.3}
-.fw-core-small{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.5rem}
-.fw-orbit{position:absolute;width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;animation:orbit 12s linear infinite}
-.fw-o1{top:-18px;left:50%;transform:translateX(-50%);animation-delay:0s}
-.fw-o2{right:-18px;top:50%;transform:translateY(-50%);animation-delay:-3s}
-.fw-o3{bottom:-18px;left:50%;transform:translateX(-50%);animation-delay:-6s}
-.fw-o4{left:-18px;top:50%;transform:translateY(-50%);animation-delay:-9s}
-@keyframes orbit{0%,100%{box-shadow:0 0 0 0 rgba(232,184,75,0)}50%{box-shadow:0 0 12px 2px rgba(232,184,75,0.2)}}
+.fw-visual{display:flex;align-items:center;justify-content:center;}
+.fw-visual svg .node{cursor:default}
+.fw-visual svg .c-teal rect{fill:#085041;stroke:#1D9E75}
+.fw-visual svg .c-teal text{fill:#9FE1CB}
+.fw-visual svg .c-amber rect{fill:#633806;stroke:#BA7517}
+.fw-visual svg .c-amber text{fill:#FAC775}
+.fw-visual svg .c-purple rect{fill:#3C3489;stroke:#7F77DD}
+.fw-visual svg .c-purple text{fill:#CECBF6}
+.fw-visual svg line[stroke="currentColor"]{stroke:#9FE1CB}
+.fw-visual svg .c-amber line[stroke="currentColor"]{stroke:#FAC775}
+.fw-visual svg .c-purple line[stroke="currentColor"]{stroke:#CECBF6}
+.fw-visual svg text.ts{font-family:'Outfit',sans-serif;font-size:12px;fill:#9FE1CB}
+.fw-visual svg .c-amber text.ts{fill:#FAC775}
+.fw-visual svg .c-purple text.ts{fill:#CECBF6}
+.fw-visual svg text.th{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;fill:#E1F5EE}
+.fw-visual svg .c-amber text.th{fill:#FAEEDA}
+.fw-visual svg .c-purple text.th{fill:#EEEDFE}
+.fw-visual svg text[opacity="0.5"]{font-family:'Outfit',sans-serif;font-size:12px;fill:#888880}
 @media(max-width:768px){
   .fuerwen-inner{grid-template-columns:1fr}
   .fw-visual{display:none}
@@ -477,19 +466,19 @@ footer{
 <!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
-    <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign Tirol</div>
     <div class="marquee-item"><span class="marquee-dot"></span>E-Commerce Beratung</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Multichannel Marketing</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Amazon Optimierung</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Webdesign</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Webdesign Innsbruck</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Corporate Identity</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Online-Vertrieb</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Drucksorten</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign Tirol</div>
     <div class="marquee-item"><span class="marquee-dot"></span>E-Commerce Beratung</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Multichannel Marketing</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Amazon Optimierung</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Webdesign</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Webdesign Innsbruck</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Corporate Identity</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Online-Vertrieb</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Drucksorten</div>
@@ -598,16 +587,61 @@ footer{
         </ul>
       </div>
       <div class="fw-visual reveal reveal-delay-2">
-        <div class="fw-circle">
-          <div class="fw-orbit fw-o1">🎨</div>
-          <div class="fw-orbit fw-o2">🛒</div>
-          <div class="fw-orbit fw-o3">📊</div>
-          <div class="fw-orbit fw-o4">🔍</div>
-          <div class="fw-core">
-            <div class="fw-core-big">Design,<br>das verkauft.</div>
-            <div class="fw-core-small">MP Vision</div>
-          </div>
-        </div>
+        <svg width="100%" viewBox="0 0 680 420" role="img" aria-label="MP Vision Kernleistungen">
+          <defs>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <line x1="212" y1="200" x2="246" y2="200" stroke="#e8b84b" stroke-width="1" opacity="0.4" marker-end="url(#arr2)"/>
+          <line x1="434" y1="200" x2="468" y2="200" stroke="#e8b84b" stroke-width="1" opacity="0.4" marker-end="url(#arr2)"/>
+          <!-- Card 1 -->
+          <g class="node c-teal">
+            <rect x="20" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
+            <text class="ts" x="116" y="92" text-anchor="middle" dominant-baseline="central">01</text>
+            <text class="th" x="116" y="126" text-anchor="middle" dominant-baseline="central">Full Service</text>
+            <text class="th" x="116" y="146" text-anchor="middle" dominant-baseline="central">Marketing</text>
+            <line x1="44" y1="164" x2="188" y2="164" stroke-width="0.5" opacity="0.3" stroke="currentColor"/>
+            <text class="ts" x="116" y="190" text-anchor="middle" dominant-baseline="central">Logo &amp; Corporate Design</text>
+            <text class="ts" x="116" y="215" text-anchor="middle" dominant-baseline="central">Drucksorten &amp; Werbemittel</text>
+            <text class="ts" x="116" y="240" text-anchor="middle" dominant-baseline="central">Websites &amp; Landingpages</text>
+            <text class="ts" x="116" y="265" text-anchor="middle" dominant-baseline="central">Druckdatenaufbereitung</text>
+            <text class="ts" x="116" y="290" text-anchor="middle" dominant-baseline="central">Verkaufsunterlagen</text>
+            <line x1="44" y1="316" x2="188" y2="316" stroke-width="0.5" opacity="0.2" stroke="currentColor"/>
+            <text class="ts" x="116" y="342" text-anchor="middle" dominant-baseline="central">Sichtbarkeit · Marke · Print</text>
+          </g>
+          <!-- Card 2 -->
+          <g class="node c-amber">
+            <rect x="244" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
+            <text class="ts" x="340" y="92" text-anchor="middle" dominant-baseline="central">02</text>
+            <text class="th" x="340" y="126" text-anchor="middle" dominant-baseline="central">E-Commerce &amp;</text>
+            <text class="th" x="340" y="146" text-anchor="middle" dominant-baseline="central">Multichannel</text>
+            <line x1="268" y1="164" x2="412" y2="164" stroke-width="0.5" opacity="0.3" stroke="currentColor"/>
+            <text class="ts" x="340" y="190" text-anchor="middle" dominant-baseline="central">Amazon Seller &amp; Vendor</text>
+            <text class="ts" x="340" y="215" text-anchor="middle" dominant-baseline="central">Multichannel-Setup</text>
+            <text class="ts" x="340" y="240" text-anchor="middle" dominant-baseline="central">SEO für Produkte &amp; Shops</text>
+            <text class="ts" x="340" y="265" text-anchor="middle" dominant-baseline="central">Listing &amp; Conversion-Opt.</text>
+            <text class="ts" x="340" y="290" text-anchor="middle" dominant-baseline="central">Laufende Betreuung</text>
+            <line x1="268" y1="316" x2="412" y2="316" stroke-width="0.5" opacity="0.2" stroke="currentColor"/>
+            <text class="ts" x="340" y="342" text-anchor="middle" dominant-baseline="central">Reichweite · Verkauf · Scale</text>
+          </g>
+          <!-- Card 3 -->
+          <g class="node c-purple">
+            <rect x="468" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
+            <text class="ts" x="564" y="92" text-anchor="middle" dominant-baseline="central">03</text>
+            <text class="th" x="564" y="126" text-anchor="middle" dominant-baseline="central">KI-gestützte</text>
+            <text class="th" x="564" y="146" text-anchor="middle" dominant-baseline="central">Optimierung</text>
+            <line x1="492" y1="164" x2="636" y2="164" stroke-width="0.5" opacity="0.3" stroke="currentColor"/>
+            <text class="ts" x="564" y="190" text-anchor="middle" dominant-baseline="central">KI-Produkttexte &amp; Bilder</text>
+            <text class="ts" x="564" y="215" text-anchor="middle" dominant-baseline="central">Markt- &amp; Preisanalyse</text>
+            <text class="ts" x="564" y="240" text-anchor="middle" dominant-baseline="central">Automatisierte Recherche</text>
+            <text class="ts" x="564" y="265" text-anchor="middle" dominant-baseline="central">Content-Skalierung</text>
+            <text class="ts" x="564" y="290" text-anchor="middle" dominant-baseline="central">Effizienz &amp; Geschwindigkeit</text>
+            <line x1="492" y1="316" x2="636" y2="316" stroke-width="0.5" opacity="0.2" stroke="currentColor"/>
+            <text class="ts" x="564" y="342" text-anchor="middle" dominant-baseline="central">Schnell · Smart · Skalierbar</text>
+          </g>
+          <text class="ts" x="340" y="396" text-anchor="middle" opacity="0.5">Alles aus einer Hand – von der Idee bis zum Verkauf</text>
+        </svg>
       </div>
     </div>
   </div>
