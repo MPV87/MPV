@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz – MP Vision GmbH</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0a'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23e8b84b' text-anchor='middle'>M</text><line x1='6' y1='27' x2='26' y2='27' stroke='%23e8b84b' stroke-width='2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;
+  --surface:#161614;
+  --border:rgba(255,255,255,0.07);
+  --text:#f0ede8;
+  --muted:#888880;
+  --accent:#e8b84b;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.6;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+
+#cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(232,184,75,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.4s,height 0.4s}
+body:has(a:hover) #cursor-ring{width:60px;height:60px}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:rgba(10,10,10,0.92);border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-back{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:8px}
+.nav-back:hover{color:var(--accent)}
+
+main{min-height:100vh;padding:140px 5% 100px;max-width:760px;margin:0 auto}
+
+.page-eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1rem}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,5.5rem);letter-spacing:0.03em;line-height:1;margin-bottom:0.5rem;color:var(--text)}
+.page-updated{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3.5rem}
+
+.block{margin-bottom:2.8rem;padding-bottom:2.8rem;border-bottom:1px solid var(--border)}
+.block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.block-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:500}
+.block-content{color:var(--muted);line-height:1.9;font-size:0.975rem}
+.block-content strong{color:var(--text);font-weight:500}
+.block-content a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(232,184,75,0.3);padding-bottom:1px;transition:border-color 0.2s,color 0.2s}
+.block-content a:hover{border-color:var(--accent);color:var(--accent)}
+.block-content p{margin-bottom:0.8rem}
+.block-content p:last-child{margin-bottom:0}
+
+.contact-card{
+  background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);
+  padding:1.4rem 1.8rem;border-radius:3px;margin-top:1rem;
+  font-size:0.95rem;color:var(--muted);line-height:2;
+}
+.contact-card strong{color:var(--text);font-weight:500}
+
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1rem}
+.right-item{
+  background:var(--surface);border:1px solid var(--border);
+  padding:0.9rem 1.1rem;border-radius:3px;
+  font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px;
+}
+.right-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@media(max-width:540px){.rights-grid{grid-template-columns:1fr}}
+
+footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.1em;color:var(--muted)}
+.footer-logo span{color:var(--accent)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:0.06em;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{color:var(--muted);font-size:12px;width:100%;text-align:center;padding-top:1rem;border-top:1px solid var(--border);margin-top:0.5rem}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">MP<span>·</span>Vision</a>
+  <a class="nav-back" href="index.html">← Zurück zur Website</a>
+</nav>
+
+<main>
+  <div class="page-eyebrow">Rechtliches</div>
+  <h1 class="page-title">Datenschutz</h1>
+  <div class="page-updated">Stand: April 2026</div>
+
+  <!-- 1 -->
+  <div class="block">
+    <div class="block-label">Geltungsbereich</div>
+    <div class="block-content">
+      <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Erhebung und Verwendung personenbezogener Daten durch:</p>
+      <div class="contact-card">
+        <strong>MP Vision GmbH</strong><br>
+        Oberanger 54/Top 1<br>
+        A-6179 Ranggen, Österreich<br>
+        <a href="tel:+436776293384">+43 677 6293 3848</a><br>
+        <a href="mailto:info@mp-vision.at">info@mp-vision.at</a><br>
+        <a href="https://www.mp-vision.at" target="_blank">www.mp-vision.at</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="block">
+    <div class="block-label">Begriffsdefinitionen</div>
+    <div class="block-content">
+      <p><strong>Personenbezogene Daten</strong> sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen – etwa Name, E-Mail-Adresse oder Telefonnummer.</p>
+      <p><strong>Verarbeitung</strong> meint jeden Vorgang im Zusammenhang mit diesen Daten, sei es das Erheben, Speichern, Ändern oder Weitergeben.</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="block">
+    <div class="block-label">Zugriffsdaten / Server-Logfiles</div>
+    <div class="block-content">
+      <p>Unser Webspace-Provider erhebt bei jedem Zugriff auf die Website automatisch sogenannte Serverlogfiles. Dazu gehören: Name der abgerufenen Seite, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Browsertyp und -version, Betriebssystem, Referrer-URL sowie IP-Adresse des anfragenden Geräts.</p>
+      <p>Diese Protokolldaten werden ausschließlich für statistische Auswertungen zum Betrieb, zur Sicherheit und zur Optimierung der Website verwendet und nach spätestens 30 Tagen gelöscht – sofern kein begründeter Verdacht auf rechtswidrige Nutzung besteht.</p>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="block">
+    <div class="block-label">Kontaktaufnahme</div>
+    <div class="block-content">
+      <p>Bei Kontaktaufnahme per E-Mail oder Kontaktformular werden Ihre Angaben zur Bearbeitung der Anfrage und für mögliche Rückfragen gespeichert. Diese Daten werden nicht ohne Ihre Einwilligung an Dritte weitergegeben und nach Abschluss der Bearbeitung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen – in der Regel nach spätestens 1 Jahr.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="block">
+    <div class="block-label">Datenspeicherung & Vertragsabwicklung</div>
+    <div class="block-content">
+      <p>Für die Erbringung unserer Dienstleistungen speichern wir folgende Daten: Firmen- oder Personenname, Adresse, E-Mail-Adresse sowie ggf. UID-Nummer. Diese Daten sind zur Vertragserfüllung zwingend erforderlich.</p>
+      <p>Eine Weitergabe an Dritte erfolgt ausschließlich an unseren Steuerberater zur Erfüllung steuerrechtlicher Verpflichtungen sowie an externe IT-Dienstleister im Rahmen der technischen Betreuung – jeweils auf Basis entsprechender Auftragsverarbeitungsverträge.</p>
+      <p>Im Fall eines Vertragsabschlusses werden alle relevanten Daten bis zum Ablauf der steuerrechtlichen Aufbewahrungsfrist (7 Jahre) gespeichert. Die Rechtsgrundlage bildet Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie lit. c (rechtliche Verpflichtung).</p>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="block">
+    <div class="block-label">Cookies</div>
+    <div class="block-content">
+      <p>Unsere Website kann technisch notwendige Cookies verwenden, die für den ordnungsgemäßen Betrieb erforderlich sind. Diese Cookies enthalten keine personenbezogenen Daten und werden nach Ende der Sitzung gelöscht.</p>
+      <p>Cookies, die über das technisch Notwendige hinausgehen (z. B. für Analyse oder Marketing), werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt. Sie können die Speicherung von Cookies über Ihre Browsereinstellungen jederzeit einschränken oder deaktivieren.</p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="block">
+    <div class="block-label">Einbindung externer Dienste</div>
+    <div class="block-content">
+      <p>Auf unserer Website können Inhalte externer Anbieter eingebunden sein (z. B. Google Maps, eingebettete Videos). Die Einbindung solcher Inhalte erfordert technisch die Übermittlung Ihrer IP-Adresse an den jeweiligen Anbieter. Wir haben keinen Einfluss auf die weitere Verarbeitung dieser Daten durch Drittanbieter und weisen Sie darauf hin, soweit uns dies bekannt ist.</p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="block">
+    <div class="block-label">Ihre Rechte</div>
+    <div class="block-content">
+      <p>Gegenüber MP Vision GmbH stehen Ihnen folgende Rechte zu:</p>
+      <div class="rights-grid">
+        <div class="right-item">Recht auf Auskunft</div>
+        <div class="right-item">Recht auf Berichtigung</div>
+        <div class="right-item">Recht auf Löschung</div>
+        <div class="right-item">Recht auf Einschränkung</div>
+        <div class="right-item">Recht auf Datenübertragbarkeit</div>
+        <div class="right-item">Recht auf Widerspruch</div>
+        <div class="right-item">Recht auf Widerruf</div>
+      </div>
+      <p style="margin-top:1.2rem">Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:info@mp-vision.at">info@mp-vision.at</a></p>
+      <p>Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, haben Sie das Recht, sich bei der <strong>Österreichischen Datenschutzbehörde</strong> zu beschweren:<br>
+      Barichgasse 40–42, 1030 Wien · <a href="https://www.dsb.gv.at" target="_blank">www.dsb.gv.at</a></p>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="block">
+    <div class="block-label">Änderungen dieser Erklärung</div>
+    <div class="block-content">
+      <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie stets den aktuellen rechtlichen Anforderungen entsprechend zu halten. Für Ihren erneuten Besuch gilt jeweils die aktuell veröffentlichte Fassung.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">MP<span>·</span>Vision</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-copy">© 2026 MP Vision GmbH</div>
+</footer>
+
+<script>
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+animRing();
+</script>
+</body>
+</html>
