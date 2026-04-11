@@ -35,285 +35,94 @@ body{
   cursor:none;
 }
 @media(max-width:768px){body{cursor:auto}}
-
-/* CUSTOM CURSOR */
-#cursor{
-  position:fixed;width:12px;height:12px;
-  background:var(--accent);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transition:transform 0.15s,width 0.3s,height 0.3s,background 0.3s;
-  transform:translate(-50%,-50%);
-  mix-blend-mode:difference;
-}
-#cursor-ring{
-  position:fixed;width:40px;height:40px;
-  border:1px solid rgba(232,184,75,0.5);
-  border-radius:50%;pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:transform 0.08s linear,width 0.4s,height 0.4s,border-color 0.3s;
-}
+#cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.15s,width 0.3s,height 0.3s,background 0.3s;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(232,184,75,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform 0.08s linear,width 0.4s,height 0.4s,border-color 0.3s;}
 body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:20px;height:20px;background:var(--accent)}
 body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:60px;height:60px;border-color:var(--accent)}
-
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:0 5%;
-  height:70px;display:flex;align-items:center;justify-content:space-between;
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  background:rgba(10,10,10,0.85);
-  border-bottom:1px solid var(--border);
-  transition:all 0.3s;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,0.85);border-bottom:1px solid var(--border);transition:all 0.3s;}
 nav.scrolled{height:60px;background:rgba(10,10,10,0.98)}
-.nav-logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.8rem;letter-spacing:0.12em;color:var(--text);
-  text-decoration:none;
-}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none;}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
-.nav-cta{
-  background:var(--accent);color:#0a0a0a!important;
-  padding:9px 20px;border-radius:2px;font-weight:600!important;
-  letter-spacing:0.05em!important;transition:opacity 0.2s!important;
-}
+.nav-cta{background:var(--accent);color:#0a0a0a!important;padding:9px 20px;border-radius:2px;font-weight:600!important;letter-spacing:0.05em!important;transition:opacity 0.2s!important;}
 .nav-cta:hover{opacity:0.85}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
 .nav-burger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all 0.3s}
-.mobile-menu{
-  display:none;position:fixed;inset:0;background:var(--bg);z-index:99;
-  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
-}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.8rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.12em;color:var(--text);text-decoration:none}
 .mobile-menu a:hover{color:var(--accent)}
 .mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
-
-@media(max-width:768px){
-  .nav-links{display:none}
-  .nav-burger{display:flex}
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:120px 5% 80px;
-  position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 70% 50%, rgba(61,107,85,0.12) 0%, transparent 65%),
-             radial-gradient(ellipse 50% 40% at 20% 80%, rgba(232,184,75,0.06) 0%, transparent 50%);
-}
-.hero-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
-}
-.hero-noise{
-  position:absolute;inset:0;opacity:0.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  pointer-events:none;
-}
+@media(max-width:768px){.nav-links{display:none}.nav-burger{display:flex}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%, rgba(61,107,85,0.12) 0%, transparent 65%),radial-gradient(ellipse 50% 40% at 20% 80%, rgba(232,184,75,0.06) 0%, transparent 50%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);}
+.hero-noise{position:absolute;inset:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;}
 .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid rgba(232,184,75,0.3);
-  padding:6px 16px;border-radius:100px;
-  font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);
-  margin-bottom:2.5rem;
-  animation:fadeInUp 0.8s ease both;
-}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(232,184,75,0.3);padding:6px 16px;border-radius:100px;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2.5rem;animation:fadeInUp 0.8s ease both;}
 .hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
-.hero-h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,10vw,9rem);
-  line-height:0.92;letter-spacing:0.02em;
-  color:var(--text);margin-bottom:2rem;
-  animation:fadeInUp 0.8s 0.15s ease both;
-}
-.hero-h1 .line2{
-  color:var(--text);display:block;
-}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,9rem);line-height:0.92;letter-spacing:0.02em;color:var(--text);margin-bottom:2rem;animation:fadeInUp 0.8s 0.15s ease both;}
+.hero-h1 .line2{color:var(--text);display:block;}
 .hero-h1 .line3{color:var(--accent);display:block}
-.hero-sub{
-  max-width:520px;font-size:1.1rem;color:var(--muted);line-height:1.75;
-  margin-bottom:3rem;
-  animation:fadeInUp 0.8s 0.3s ease both;
-}
-.hero-btns{
-  display:flex;gap:1rem;flex-wrap:wrap;align-items:center;
-  animation:fadeInUp 0.8s 0.45s ease both;
-}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:15px 32px;border-radius:3px;
-  font-family:'Outfit',sans-serif;font-size:15px;font-weight:500;
-  letter-spacing:0.04em;text-decoration:none;transition:all 0.25s;
-  cursor:pointer;border:none;
-}
+.hero-sub{max-width:520px;font-size:1.1rem;color:var(--muted);line-height:1.75;margin-bottom:3rem;animation:fadeInUp 0.8s 0.3s ease both;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;animation:fadeInUp 0.8s 0.45s ease both;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:3px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.04em;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none;}
 .btn-primary{background:var(--accent);color:#0a0a0a}
 .btn-primary:hover{background:#f0c758;transform:translateY(-2px)}
 .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
 .btn-secondary:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04)}
 .btn-arrow{transition:transform 0.2s}
 .btn:hover .btn-arrow{transform:translateX(4px)}
-.hero-stats{
-  position:absolute;right:5%;bottom:15%;
-  display:flex;flex-direction:column;gap:1.5rem;z-index:2;
-  animation:fadeInRight 1s 0.6s ease both;
-}
-.stat-item{text-align:right}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:0.04em;color:var(--text);line-height:1}
-.stat-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
-.hero-scroll{
-  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:var(--muted);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;
-  animation:fadeIn 1s 1s ease both;
-}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;animation:fadeIn 1s 1s ease both;}
 .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollDown 2s infinite}
 @keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@media(max-width:768px){
-  .hero-stats{position:relative;right:auto;bottom:auto;flex-direction:row;gap:2rem;margin-top:3rem}
-  .stat-item{text-align:left}
-  .hero-scroll{display:none}
-}
-
-/* MARQUEE */
-.marquee-wrap{
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:1rem 0;overflow:hidden;background:var(--surface);
-}
-.marquee-track{
-  display:flex;gap:3rem;width:max-content;
-  animation:marquee 25s linear infinite;
-}
-.marquee-item{
-  display:flex;align-items:center;gap:1rem;white-space:nowrap;
-  font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);
-}
+@media(max-width:768px){.hero-scroll{display:none}}
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0;overflow:hidden;background:var(--surface);}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:marquee 25s linear infinite;}
+.marquee-item{display:flex;align-items:center;gap:1rem;white-space:nowrap;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
 .marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* SECTION BASE */
 section{padding:100px 5%}
 .section-inner{max-width:1100px;margin:0 auto}
 .eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1rem}
 .section-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:0.03em;line-height:1;margin-bottom:1.5rem}
-
-/* REVEAL ANIMATION */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:0.1s}
 .reveal-delay-2{transition-delay:0.2s}
 .reveal-delay-3{transition-delay:0.3s}
 .reveal-delay-4{transition-delay:0.4s}
-
-/* POSITIONIERUNG */
 .positioning{background:var(--surface);position:relative;overflow:hidden}
-.pos-accent-line{
-  position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(to bottom,transparent,var(--accent),transparent);
-}
+.pos-accent-line{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);}
 .pos-inner{max-width:800px}
-.pos-big{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:0.03em;line-height:1.15;
-  margin-bottom:1.5rem;color:var(--text);
-}
+.pos-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3.5vw,3rem);letter-spacing:0.03em;line-height:1.15;margin-bottom:1.5rem;color:var(--text);}
 .pos-big em{color:var(--accent);font-style:normal}
 .pos-sub{font-size:1.1rem;color:var(--muted);line-height:1.8;max-width:600px}
-
-/* LEISTUNGEN */
 .leistungen-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:4rem;background:var(--border)}
-.leistung-card{
-  background:var(--bg);padding:3rem;position:relative;overflow:hidden;
-  transition:background 0.4s;
-}
-.leistung-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 60% at 0% 100%, var(--accent-glow), transparent);
-  opacity:0;transition:opacity 0.4s;
-}
+.leistung-card{background:var(--bg);padding:3rem;position:relative;overflow:hidden;transition:background 0.4s;}
+.leistung-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 0% 100%, var(--accent-glow), transparent);opacity:0;transition:opacity 0.4s;}
 .leistung-card:hover{background:var(--surface)}
 .leistung-card:hover::before{opacity:1}
-.lc-num{
-  font-family:'Bebas Neue',sans-serif;font-size:5rem;letter-spacing:0.05em;
-  color:rgba(255,255,255,0.04);position:absolute;top:1.5rem;right:2rem;line-height:1;
-}
-.lc-icon{
-  width:48px;height:48px;border-radius:10px;
-  background:rgba(232,184,75,0.1);border:1px solid rgba(232,184,75,0.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:1.5rem;
-}
+.lc-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;letter-spacing:0.05em;color:rgba(255,255,255,0.04);position:absolute;top:1.5rem;right:2rem;line-height:1;}
+.lc-icon{width:48px;height:48px;border-radius:10px;background:rgba(232,184,75,0.1);border:1px solid rgba(232,184,75,0.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.5rem;}
 .lc-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.04em;margin-bottom:0.75rem;color:var(--text)}
 .lc-sub{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
 .lc-list{list-style:none;margin-bottom:1.5rem}
-.lc-list li{
-  display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);
-  padding:7px 0;border-bottom:1px solid var(--border);transition:color 0.2s;
-}
+.lc-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--border);transition:color 0.2s;}
 .lc-list li:hover{color:var(--text)}
 .lc-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.lc-strong{
-  font-size:13px;font-style:italic;color:var(--accent);
-  padding-top:1rem;line-height:1.5;
-}
+.lc-strong{font-size:13px;font-style:italic;color:var(--accent);padding-top:1rem;line-height:1.5;}
 @media(max-width:768px){.leistungen-grid{grid-template-columns:1fr}}
-
-/* VORTEILE */
-.vorteile{background:var(--surface)}
-.vorteile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.vorteil-card{
-  padding:2rem;border:1px solid var(--border);border-radius:4px;
-  position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s;
-}
-.vorteil-card:hover{border-color:rgba(232,184,75,0.3);transform:translateY(-4px)}
-.vorteil-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),transparent);
-  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
-}
-.vorteil-card:hover::after{transform:scaleX(1)}
-.v-icon{font-size:1.5rem;margin-bottom:1rem}
-.v-title{font-weight:600;font-size:1rem;margin-bottom:0.5rem;color:var(--text)}
-.v-text{font-size:14px;color:var(--muted);line-height:1.6}
-@media(max-width:600px){.vorteile-grid{grid-template-columns:1fr}}
-
-/* FÜR WEN */
 .fuerwen{position:relative;overflow:hidden}
-.fuerwen-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 80% at 80% 50%, rgba(61,107,85,0.1) 0%,transparent 60%);
-}
-.fuerwen-inner{
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2;
-}
+.fuerwen-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2;}
 .fw-list{margin-top:2rem;list-style:none;display:flex;flex-direction:column;gap:1rem}
-.fw-list li{
-  display:flex;align-items:flex-start;gap:14px;padding:1.2rem;
-  border:1px solid var(--border);border-radius:4px;
-  font-size:15px;color:var(--muted);transition:all 0.3s;
-}
+.fw-list li{display:flex;align-items:flex-start;gap:14px;padding:1.2rem;border:1px solid var(--border);border-radius:4px;font-size:15px;color:var(--muted);transition:all 0.3s;}
 .fw-list li:hover{border-color:rgba(232,184,75,0.2);color:var(--text);background:rgba(232,184,75,0.03)}
-.fw-check{
-  width:22px;height:22px;border-radius:50%;
-  background:rgba(61,107,85,0.3);border:1px solid rgba(61,107,85,0.6);
-  display:flex;align-items:center;justify-content:center;
-  color:#5fa87f;font-size:12px;flex-shrink:0;margin-top:1px;
-}
+.fw-check{width:22px;height:22px;border-radius:50%;background:rgba(61,107,85,0.3);border:1px solid rgba(61,107,85,0.6);display:flex;align-items:center;justify-content:center;color:#5fa87f;font-size:12px;flex-shrink:0;margin-top:1px;}
 .fw-visual{display:flex;align-items:center;justify-content:center;}
-.fw-visual svg .node{cursor:default}
 .fw-visual svg .c-teal rect{fill:#085041;stroke:#1D9E75}
 .fw-visual svg .c-teal text{fill:#9FE1CB}
 .fw-visual svg .c-amber rect{fill:#633806;stroke:#BA7517}
@@ -330,103 +139,62 @@ section{padding:100px 5%}
 .fw-visual svg .c-amber text.th{fill:#FAEEDA}
 .fw-visual svg .c-purple text.th{fill:#EEEDFE}
 .fw-visual svg text[opacity="0.5"]{font-family:'Outfit',sans-serif;font-size:12px;fill:#888880}
-@media(max-width:768px){
-  .fuerwen-inner{grid-template-columns:1fr}
-  .fw-visual{display:none}
-}
-
-/* ÜBER MICH */
+@media(max-width:768px){.fuerwen-inner{grid-template-columns:1fr}.fw-visual{display:none}}
+.story-block{margin-bottom:2.5rem}
+.story-block p{color:var(--muted);line-height:1.85;font-size:1.05rem;margin-bottom:1.1rem}
+.story-block p:last-child{margin-bottom:0}
+.story-quote{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.04em;color:var(--accent);margin:1.5rem 0;padding-left:1.2rem;border-left:3px solid var(--accent);line-height:1.2;}
+.story-pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin-bottom:2rem}
+.story-pillar{background:var(--bg);padding:1.5rem;transition:background 0.3s}
+.story-pillar:hover{background:var(--surface)}
+.sp-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.6rem}
+.sp-text{font-size:13px;color:var(--muted);line-height:1.65}
+@media(max-width:700px){.story-pillars{grid-template-columns:1fr}}
 .ueber{background:var(--surface)}
-.ueber-inner{display:grid;grid-template-columns:1fr;gap:3rem;max-width:700px}
-.ueber-left{}
-.ueber-img-wrap{
-  aspect-ratio:3/4;background:var(--bg);border-radius:4px;
-  overflow:hidden;position:relative;border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  max-width:360px;
-}
-.ueber-img-placeholder{
-  display:flex;flex-direction:column;align-items:center;gap:1rem;color:var(--muted);
-}
-.ueber-img-frame{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(61,107,85,0.08),transparent);
-}
-.ueber-corner{position:absolute;width:20px;height:20px;border-color:var(--accent);border-style:solid;border-width:0}
-.ueber-corner.tl{top:12px;left:12px;border-top-width:2px;border-left-width:2px}
-.ueber-corner.br{bottom:12px;right:12px;border-bottom-width:2px;border-right-width:2px}
+.ueber-inner{display:grid;grid-template-columns:1fr;gap:3rem;max-width:800px}
 .ueber-text p{color:var(--muted);line-height:1.85;font-size:1.05rem;margin-bottom:1.2rem}
 .ueber-text p strong{color:var(--text);font-weight:500}
 .ueber-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
-.chip{
-  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
-  border:1px solid rgba(232,184,75,0.25);color:var(--accent);
-  padding:5px 14px;border-radius:100px;transition:all 0.2s;
-}
+.chip{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(232,184,75,0.25);color:var(--accent);padding:5px 14px;border-radius:100px;transition:all 0.2s;}
 .chip:hover{background:rgba(232,184,75,0.08)}
-@media(max-width:768px){.ueber-inner{grid-template-columns:1fr}}
-
-/* CTA SECTION */
-.cta-section{
-  padding:120px 5%;
-  position:relative;overflow:hidden;
-  background:var(--bg);
-}
-.cta-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 70% at 50% 50%, rgba(232,184,75,0.06) 0%,transparent 60%);
-}
-.cta-inner{
-  max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2;
-}
+.cta-section{padding:120px 5%;position:relative;overflow:hidden;background:var(--bg);}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%, rgba(232,184,75,0.06) 0%,transparent 60%);}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2;}
 .cta-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);letter-spacing:0.03em;line-height:1;margin-bottom:1.2rem}
 .cta-sub{color:var(--muted);font-size:1.05rem;margin-bottom:2.5rem;line-height:1.7}
 .cta-line{width:60px;height:2px;background:var(--accent);margin:0 auto 2.5rem}
-
-/* FOOTER */
-footer{
-  background:var(--surface);border-top:1px solid var(--border);
-  padding:3rem 5%;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
-}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.1em;color:var(--muted)}
 .footer-logo span{color:var(--accent)}
 .footer-links{display:flex;gap:2rem}
 .footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.2s}
 .footer-links a:hover{color:var(--accent)}
 .footer-copy{color:var(--muted);font-size:12px;width:100%;text-align:center;padding-top:1rem;border-top:1px solid var(--border);margin-top:1rem}
-
-/* ANIMATIONS */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-/* PROGRESS BAR */
 #progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:1000;transition:width 0.1s}
 </style>
 </head>
 <body>
-
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div id="progress"></div>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="menuClose">✕</button>
   <a href="#leistungen" onclick="closeMobile()">Leistungen</a>
-  <a href="#vorteile" onclick="closeMobile()">Vorteile</a>
   <a href="#ueber" onclick="closeMobile()">Über mich</a>
+  <a href="#fuerwen" onclick="closeMobile()">Zielgruppe</a>
   <a href="#kontakt" onclick="closeMobile()" style="color:var(--accent)">Kontakt</a>
 </div>
 
-<!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="#">MP<span>·</span>Vision</a>
   <ul class="nav-links">
     <li><a href="#leistungen">Leistungen</a></li>
-    <li><a href="#vorteile">Vorteile</a></li>
     <li><a href="#ueber">Über mich</a></li>
+    <li><a href="#fuerwen">Zielgruppe</a></li>
     <li><a href="#kontakt" class="nav-cta">Erstgespräch</a></li>
   </ul>
   <div class="nav-burger" id="burger">
@@ -434,36 +202,26 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-noise"></div>
   <div class="hero-content">
-    <div class="hero-tag">
-      Grafikdesign · E-Commerce · KI-gestützte Lösungen
-    </div>
+    <div class="hero-tag">Grafikdesign · E-Commerce · KI-gestützte Lösungen</div>
     <h1 class="hero-h1">
       Design &amp;
       <span class="line2">E-Commerce,</span>
       <span class="line3">das verkauft.</span>
     </h1>
-    <p class="hero-sub">
-      Ich unterstütze Unternehmen bei Design, Online-Vertrieb und Multichannel-Strategien – von der Idee bis zur fertigen Umsetzung.
-    </p>
+    <p class="hero-sub">Nicht noch eine Agentur. Sondern jemand, der mitdenkt, umsetzt – und Ergebnisse liefert.</p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn btn-primary">Kostenloses Erstgespräch <span class="btn-arrow">→</span></a>
       <a href="#leistungen" class="btn btn-secondary">Leistungen ansehen</a>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign</div>
@@ -474,6 +232,7 @@ footer{
     <div class="marquee-item"><span class="marquee-dot"></span>Corporate Identity</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Online-Vertrieb</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Drucksorten</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>KI-gestützte Lösungen</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Grafikdesign</div>
     <div class="marquee-item"><span class="marquee-dot"></span>E-Commerce Beratung</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Multichannel Marketing</div>
@@ -482,31 +241,30 @@ footer{
     <div class="marquee-item"><span class="marquee-dot"></span>Corporate Identity</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Online-Vertrieb</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Drucksorten</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>KI-gestützte Lösungen</div>
   </div>
 </div>
 
-<!-- POSITIONIERUNG -->
 <section class="positioning" id="positionierung">
   <div class="pos-accent-line"></div>
   <div class="section-inner">
     <div class="pos-inner reveal">
-      <div class="eyebrow">Mein Ansatz</div>
+      <div class="eyebrow">Warum MP Vision</div>
       <p class="pos-big">
-        Design allein reicht heute nicht mehr.<br>
-        Ich kombiniere <em>Grafik, Marketing und E-Commerce</em> – damit Ihr Auftritt nicht nur gut aussieht, sondern <em>Ergebnisse bringt.</em>
+        Ich habe MP Vision gegründet, weil ich gesehen habe,<br>
+        wie Marketing oft läuft – <em>kompliziert, intransparent</em><br>
+        und weit weg von dem, was Unternehmen wirklich brauchen.
       </p>
-      <p class="pos-sub">Design, das verkauft – kombiniert mit echter E-Commerce Erfahrung. Das ist mein Unterschied.</p>
+      <p class="pos-sub">Große Teams, viele Meetings, lange Prozesse – und am Ende bleibt oft die Frage: Was hat das eigentlich gebracht? Genau da setze ich an.</p>
     </div>
   </div>
 </section>
 
-<!-- LEISTUNGEN -->
 <section id="leistungen">
   <div class="section-inner">
     <div class="eyebrow reveal">Was ich anbiete</div>
     <h2 class="section-h2 reveal reveal-delay-1">Meine Leistungen</h2>
     <div class="leistungen-grid">
-      <!-- Karte 1 -->
       <div class="leistung-card reveal reveal-delay-2">
         <div class="lc-num">01</div>
         <div class="lc-icon">🎨</div>
@@ -521,7 +279,6 @@ footer{
         </ul>
         <div class="lc-strong">Vom ersten Entwurf bis zur fertigen Umsetzung – sauber, durchdacht und druckfertig.</div>
       </div>
-      <!-- Karte 2 -->
       <div class="leistung-card reveal reveal-delay-3">
         <div class="lc-num">02</div>
         <div class="lc-icon">🛒</div>
@@ -541,37 +298,46 @@ footer{
   </div>
 </section>
 
-<!-- VORTEILE -->
-<section class="vorteile" id="vorteile">
+<section class="ueber" id="ueber">
   <div class="section-inner">
-    <div class="eyebrow reveal">Warum MP Vision</div>
-    <h2 class="section-h2 reveal reveal-delay-1">Ihre Vorteile</h2>
-    <div class="vorteile-grid">
-      <div class="vorteil-card reveal reveal-delay-1">
-        <div class="v-icon">◈</div>
-        <div class="v-title">Alles aus einer Hand</div>
-        <div class="v-text">Grafik, Marketing und E-Commerce – ohne Schnittstellenprobleme und ohne Koordinationsaufwand.</div>
-      </div>
-      <div class="vorteil-card reveal reveal-delay-2">
-        <div class="v-icon">⚡</div>
-        <div class="v-title">Praxis statt Theorie</div>
-        <div class="v-text">Keine Konzepte ohne Umsetzung – ich arbeite direkt an funktionierenden Lösungen.</div>
-      </div>
-      <div class="vorteil-card reveal reveal-delay-3">
-        <div class="v-icon">◎</div>
-        <div class="v-title">Fokus auf Ergebnis</div>
-        <div class="v-text">Sichtbarkeit, Verkäufe und ein professioneller Auftritt stehen immer im Mittelpunkt.</div>
-      </div>
-      <div class="vorteil-card reveal reveal-delay-4">
-        <div class="v-icon">✦</div>
-        <div class="v-title">Persönliche Betreuung</div>
-        <div class="v-text">Direkter Kontakt, schnelle Abstimmung, klare Kommunikation – immer mit mir persönlich.</div>
+    <div class="ueber-inner">
+      <div class="ueber-text">
+        <div class="eyebrow reveal">Matthias Purtscheller</div>
+        <h2 class="section-h2 reveal reveal-delay-1">Ich arbeite<br>bewusst anders.</h2>
+        <div class="story-block reveal reveal-delay-2">
+          <p>Ich glaube nicht an unnötige Hierarchien, aufgeblähte Strukturen oder schöne Präsentationen ohne echten Mehrwert. Ich glaube an klare Strategien, direkte Kommunikation – und vor allem an messbare Ergebnisse.</p>
+          <p>Bei mir gibt es keinen Umweg über fünf Ansprechpartner. Kein Weiterreichen von Informationen. Kein „Das muss ich intern abklären".</p>
+          <div class="story-quote reveal reveal-delay-3">Du arbeitest direkt mit mir.</div>
+          <p>Ich denke mit, hinterfrage, optimiere – und übernehme Verantwortung für das Ergebnis. Nicht nur für die Umsetzung.</p>
+        </div>
+        <div class="story-pillars reveal reveal-delay-3">
+          <div class="story-pillar">
+            <div class="sp-label">Transparenz</div>
+            <div class="sp-text">Kein Blackbox-Modell. Keine versteckten Stunden. Du weißt jederzeit, was gemacht wird, wie viel Zeit investiert wird – und welchen Mehrwert du bekommst.</div>
+          </div>
+          <div class="story-pillar">
+            <div class="sp-label">Fokus</div>
+            <div class="sp-text">Keine Standardlösungen. Keine Copy-Paste-Strategien. Mein Ziel ist nicht, möglichst viele Projekte zu betreuen – sondern Projekte richtig gut zu machen.</div>
+          </div>
+          <div class="story-pillar">
+            <div class="sp-label">Partnerschaft</div>
+            <div class="sp-text">Ich sage ehrlich, was funktioniert – und was nicht. Ich setze nicht einfach um, sondern denke aktiv mit. Und ich habe ein echtes Interesse daran, dass dein Business wächst.</div>
+          </div>
+        </div>
+        <div class="ueber-chips reveal reveal-delay-4">
+          <span class="chip">Adobe Suite</span>
+          <span class="chip">Corporate Design</span>
+          <span class="chip">Amazon Seller</span>
+          <span class="chip">Multichannel</span>
+          <span class="chip">SEO</span>
+          <span class="chip">Webdesign</span>
+          <span class="chip">KI-Tools</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FÜR WEN -->
 <section class="fuerwen" id="fuerwen">
   <div class="section-inner">
     <div class="fuerwen-inner">
@@ -595,7 +361,6 @@ footer{
           </defs>
           <line x1="212" y1="200" x2="246" y2="200" stroke="#e8b84b" stroke-width="1" opacity="0.4" marker-end="url(#arr2)"/>
           <line x1="434" y1="200" x2="468" y2="200" stroke="#e8b84b" stroke-width="1" opacity="0.4" marker-end="url(#arr2)"/>
-          <!-- Card 1 -->
           <g class="node c-teal">
             <rect x="20" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
             <text class="ts" x="116" y="92" text-anchor="middle" dominant-baseline="central">01</text>
@@ -610,7 +375,6 @@ footer{
             <line x1="44" y1="316" x2="188" y2="316" stroke-width="0.5" opacity="0.2" stroke="currentColor"/>
             <text class="ts" x="116" y="342" text-anchor="middle" dominant-baseline="central">Sichtbarkeit · Marke · Print</text>
           </g>
-          <!-- Card 2 -->
           <g class="node c-amber">
             <rect x="244" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
             <text class="ts" x="340" y="92" text-anchor="middle" dominant-baseline="central">02</text>
@@ -625,7 +389,6 @@ footer{
             <line x1="268" y1="316" x2="412" y2="316" stroke-width="0.5" opacity="0.2" stroke="currentColor"/>
             <text class="ts" x="340" y="342" text-anchor="middle" dominant-baseline="central">Reichweite · Verkauf · Scale</text>
           </g>
-          <!-- Card 3 -->
           <g class="node c-purple">
             <rect x="468" y="60" width="192" height="300" rx="10" stroke-width="0.5"/>
             <text class="ts" x="564" y="92" text-anchor="middle" dominant-baseline="central">03</text>
@@ -647,30 +410,6 @@ footer{
   </div>
 </section>
 
-<!-- ÜBER MICH -->
-<section class="ueber" id="ueber">
-  <div class="section-inner">
-    <div class="ueber-inner">
-<div class="ueber-text reveal reveal-delay-2">
-        <div class="eyebrow">Über mich</div>
-        <h2 class="section-h2">Matthias<br>Purtscheller</h2>
-        <p>Ich verbinde <strong>Design mit echtem Verständnis für Vertrieb und E-Commerce</strong>. Mein Ziel: Lösungen, die nicht nur gut aussehen – sondern funktionieren.</p>
-        <p>Mit über 15 Jahren Erfahrung in Grafik, digitalem Marketing und Online-Vertrieb biete ich Unternehmen einen <strong>Partner, der mitdenkt und umsetzt</strong> – persönlich, direkt und ohne Agentur-Overhead.</p>
-        <div class="ueber-chips">
-          <span class="chip">Adobe Suite</span>
-          <span class="chip">Corporate Design</span>
-          <span class="chip">Amazon Seller</span>
-          <span class="chip">Multichannel</span>
-          <span class="chip">SEO</span>
-          <span class="chip">Webdesign</span>
-          <span class="chip">KI-Tools</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="cta-section" id="kontakt">
   <div class="cta-bg"></div>
   <div class="cta-inner">
@@ -692,7 +431,6 @@ footer{
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">MP<span>·</span>Vision</div>
   <div class="footer-links">
@@ -703,71 +441,23 @@ footer{
 </footer>
 
 <script>
-// CURSOR
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-});
-function animRing(){
-  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-}
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
 animRing();
-
-// PROGRESS BAR
-const prog = document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  const st=window.scrollY;
-  const dh=document.documentElement.scrollHeight-window.innerHeight;
-  prog.style.width=(st/dh*100)+'%';
-});
-
-// NAV SCROLL
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const st=window.scrollY;const dh=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(st/dh*100)+'%';});
 const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
-  navbar.classList.toggle('scrolled',window.scrollY>60);
-});
-
-// MOBILE MENU
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);});
 document.getElementById('burger').onclick=()=>document.getElementById('mobileMenu').classList.add('open');
 document.getElementById('menuClose').onclick=closeMobile;
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
-
-// REVEAL ON SCROLL
 const reveals=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:0.12});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:0.12});
 reveals.forEach(r=>obs.observe(r));
-
-// COUNT UP ANIMATION
-const counters=document.querySelectorAll('[data-count]');
-const cObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const target=+e.target.dataset.count;
-      let start=0;const dur=1600;const step=dur/target;
-      const timer=setInterval(()=>{
-        start++;e.target.textContent=start+(target>10?'+':'');
-        if(start>=target)clearInterval(timer);
-      },step);
-      cObs.unobserve(e.target);
-    }
-  });
-},{threshold:0.5});
-counters.forEach(c=>cObs.observe(c));
-
-// SMOOTH ANCHOR SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
-  });
-});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}});});
 </script>
 </body>
 </html>
