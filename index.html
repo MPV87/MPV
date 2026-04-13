@@ -6,7 +6,7 @@
 <title>MP Vision – Design, das verkauft | Grafikdesign & E-Commerce Beratung</title>
 <meta name="description" content="Grafikdesign & E-Commerce Beratung mit KI-Einsatz. Ich kombiniere Design, Marketing und Multichannel-Strategie – von der Idee bis zur Umsetzung.">
 <meta name="keywords" content="Grafikdesign Tirol, Grafikdesign Innsbruck, E-Commerce Beratung, Multichannel E-Commerce, Webdesign Tirol, Amazon Optimierung">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0a'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23e8b84b' text-anchor='middle'>M</text><line x1='6' y1='27' x2='26' y2='27' stroke='%23e8b84b' stroke-width='2'/></svg>">
+<link rel="icon" type="image/png" href="MPV_Logo_Favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -41,8 +41,9 @@ body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:20px;height:20px;
 body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:60px;height:60px;border-color:var(--accent)}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,0.85);border-bottom:1px solid var(--border);transition:all 0.3s;}
 nav.scrolled{height:60px;background:rgba(10,10,10,0.98)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none;}
-.nav-logo span{color:var(--accent)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo img{height:36px;width:auto;display:block;transition:opacity 0.2s;}
+.nav-logo img:hover{opacity:0.85}
 .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
@@ -190,7 +191,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
 </div>
 
 <nav id="navbar">
-  <a class="nav-logo" href="MPV_Logo_white.png">MP<span>·</span>Vision</a>
+  <a class="nav-logo" href="#">
+    <img src="MPV_Logo_Favicon_white.png" alt="MP Vision" style="height:36px;width:auto;display:block;">
+  </a>
   <ul class="nav-links">
     <li><a href="#leistungen">Leistungen</a></li>
     <li><a href="#ueber">Über mich</a></li>
