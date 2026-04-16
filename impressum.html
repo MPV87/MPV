@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impressum – MP Vision GmbH</title>
 <meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="MPV_Logo_Favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,8 +33,9 @@ nav{
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   background:rgba(10,10,10,0.92);border-bottom:1px solid var(--border);
 }
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none}
-.nav-logo span{color:var(--accent)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo img{height:36px;width:auto;display:block;transition:opacity 0.2s;}
+.nav-logo img:hover{opacity:0.85}
 .nav-back{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:8px}
 .nav-back:hover{color:var(--accent)}
 
@@ -73,7 +75,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
 <div id="cursor-ring"></div>
 
 <nav>
-  <a class="nav-logo" href="index.html">MP<span>·</span>Vision</a>
+  <a class="nav-logo" href="index.html">
+    <img src="MPV_Logo_Favicon_white.png" alt="MP Vision">
+  </a>
   <a class="nav-back" href="index.html">← Zurück zur Website</a>
 </nav>
 
