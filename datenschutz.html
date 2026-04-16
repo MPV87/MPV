@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datenschutz – MP Vision GmbH</title>
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0a'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23e8b84b' text-anchor='middle'>M</text><line x1='6' y1='27' x2='26' y2='27' stroke='%23e8b84b' stroke-width='2'/></svg>">
+<link rel="icon" type="image/png" href="MPV_Logo_Favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -33,8 +33,9 @@ nav{
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   background:rgba(10,10,10,0.92);border-bottom:1px solid var(--border);
 }
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.12em;color:var(--text);text-decoration:none}
-.nav-logo span{color:var(--accent)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo img{height:36px;width:auto;display:block;transition:opacity 0.2s;}
+.nav-logo img:hover{opacity:0.85}
 .nav-back{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:8px}
 .nav-back:hover{color:var(--accent)}
 
@@ -85,7 +86,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
 <div id="cursor-ring"></div>
 
 <nav>
-  <a class="nav-logo" href="index.html">MP<span>·</span>Vision</a>
+  <a class="nav-logo" href="index.html">
+    <img src="MPV_Logo_Favicon_white.png" alt="MP Vision">
+  </a>
   <a class="nav-back" href="index.html">← Zurück zur Website</a>
 </nav>
 
@@ -94,7 +97,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
   <h1 class="page-title">Datenschutz</h1>
   <div class="page-updated">Stand: April 2026</div>
 
-  <!-- 1 -->
   <div class="block">
     <div class="block-label">Geltungsbereich</div>
     <div class="block-content">
@@ -110,7 +112,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 2 -->
   <div class="block">
     <div class="block-label">Begriffsdefinitionen</div>
     <div class="block-content">
@@ -119,7 +120,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 3 -->
   <div class="block">
     <div class="block-label">Zugriffsdaten / Server-Logfiles</div>
     <div class="block-content">
@@ -128,7 +128,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 4 -->
   <div class="block">
     <div class="block-label">Kontaktaufnahme</div>
     <div class="block-content">
@@ -136,7 +135,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 5 -->
   <div class="block">
     <div class="block-label">Datenspeicherung & Vertragsabwicklung</div>
     <div class="block-content">
@@ -146,7 +144,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 6 -->
   <div class="block">
     <div class="block-label">Cookies</div>
     <div class="block-content">
@@ -155,7 +152,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 7 -->
   <div class="block">
     <div class="block-label">Einbindung externer Dienste</div>
     <div class="block-content">
@@ -163,7 +159,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 8 -->
   <div class="block">
     <div class="block-label">Ihre Rechte</div>
     <div class="block-content">
@@ -183,7 +178,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem
     </div>
   </div>
 
-  <!-- 9 -->
   <div class="block">
     <div class="block-label">Änderungen dieser Erklärung</div>
     <div class="block-content">
